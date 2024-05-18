@@ -1,7 +1,9 @@
-import css from "./contactForm.module.css";
+import css from "./contactForm.module.css"
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operation";
+
+import { TextField, Button, Stack, Box } from '@mui/material';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -16,31 +18,27 @@ export const ContactForm = () => {
   };
 
   return (
-    <form  className={css.container} onSubmit={handleSubmit} >
-      <div className={css.form}>
-        <label>Name:</label>
-        <input
-          className={css.input}
-          name="name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div className={css.form}>
-        <label>Number:</label>
-        <input
-          className={css.input}
-          name="number"
-          type="text"
-          value={number}
-          onChange={(e) => setNumber(e.target.value)}
-          placeholder="xxx-xx-xx"
-        />
-      </div>
-      <button className={css.button} type="submit">
-        Add contact
-      </button>
-    </form>
+    <Box className={css.container} component="form" onSubmit={handleSubmit} noValidate autoComplete="off" sx={{ display: 'flex', flexDirection: 'column', gap: 2, maxWidth: 400, margin: 'auto' }}>
+      <TextField
+        label="Name"
+        variant="outlined"
+        name="name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        fullWidth
+      />
+      <TextField
+        label="Number"
+        variant="outlined"
+        name="number"
+        value={number}
+        onChange={(e) => setNumber(e.target.value)}
+        placeholder="xxx-xx-xx"
+        fullWidth
+      />
+      <Stack spacing={2} direction="row" justifyContent="center">
+        <Button variant="contained" type="submit">Add contact</Button>
+      </Stack>
+    </Box>
   );
 };

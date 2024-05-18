@@ -3,6 +3,9 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import { logIn } from "../../redux/auth/operations";
 import css from "./LoginForm.module.css";
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -29,15 +32,32 @@ export default function LoginForm() {
       onSubmit={handleSubmit}
     >
       <Form className={css.form} autoComplete="off">
-        <label className={css.label}>
-          Email
-          <Field type="email" name="email" />
-        </label>
-        <label className={css.label}>
-          Password
-          <Field type="password" name="password" />
-        </label>
-        <button type="submit">Log In</button>
+        <Field name="email">
+            {({ field }) => (
+              <TextField
+                {...field}
+                type="email"
+                label="Email"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+              />
+            )}
+          </Field>
+          <Field name="password">
+            {({ field }) => (
+              <TextField
+                {...field}
+                type="password"
+                label="Password"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+              />
+            )}
+          </Field>
+        <Stack spacing={2} direction="row">
+        <Button variant="contained" type="submit">Log In</Button></Stack>
       </Form>
     </Formik>
   );
