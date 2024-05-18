@@ -60,6 +60,9 @@ const contactSlise = createSlice({
 export const selectFilteredContacts = createSelector(
     [selectContact, selectFilter],
     (contacts, nameFilter) => {
-        return contacts.filter(contact => contact.name.toLowerCase().includes(nameFilter.toLowerCase()));
+        return contacts.filter(contact =>
+            contact.name.toLowerCase().includes(nameFilter.toLowerCase())|| 
+            contact.number.includes(nameFilter)
+        );
     });
 export default contactSlise.reducer;

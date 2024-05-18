@@ -3,8 +3,6 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
 import { deleteContact } from "../../redux/contacts/operation";
 import { useDispatch } from 'react-redux';
-// import { MdClose } from 'react-icons/md';
-// import { isPending } from "@reduxjs/toolkit";
 
 export const Contact = ({ contact }) => {
     const dispatch = useDispatch();
