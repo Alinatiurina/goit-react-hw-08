@@ -1,7 +1,7 @@
 import css from "./contact.module.css";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
-import { deleteContact } from "../../redux/contacts/operation";
+import { deleteContact } from "../../redux/contacts/operations";
 import { useDispatch } from 'react-redux';
 import { Box, Typography} from '@mui/material';
 import Stack from '@mui/material/Stack';
@@ -17,10 +17,10 @@ export const Contact = ({ contact }) => {
     <Box className={css.container}>
       <Box display="flex" flexDirection="column">
         <Typography variant="body1" display="flex" alignItems="center" gutterBottom>
-          <FaUser style={{ marginRight: 8 }} /> {contact.name}
+          <FaUser className={css.icon} /> {contact.name}
         </Typography>
         <Typography variant="body1" display="flex" alignItems="center">
-          <BsFillTelephoneFill style={{ marginRight: 8 }} /> {contact.number}
+          <BsFillTelephoneFill className={css.icon} /> {contact.number}
         </Typography>
       </Box>
       <Stack spacing={2} direction="row">
@@ -28,12 +28,4 @@ export const Contact = ({ contact }) => {
 
     </Box>
   );
-  // return (
-  //   <div className={css.container}>
-  //     <div className={css.contact}>
-  //       <p className={css.text}><FaUser /> {contact.name}</p>
-  //       <p className={css.text}> <BsFillTelephoneFill /> {contact.number}</p></div>
-  //     <button className={css.button} onClick={handleDelete}>Delete</button>
-  //   </div>
-  // );
 };

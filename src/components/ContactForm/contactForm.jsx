@@ -1,7 +1,7 @@
 import css from "./contactForm.module.css"
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/operation";
+import { addContact } from "../../redux/contacts/operations";
 
 import { TextField, Button, Stack, Box } from '@mui/material';
 
@@ -18,7 +18,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <Box className={css.container} component="form" onSubmit={handleSubmit} noValidate autoComplete="off" sx={{ display: 'flex', flexDirection: 'column', gap: 2, maxWidth: 400, margin: 'auto' }}>
+    <Box className={css.container} component="form" onSubmit={handleSubmit} noValidate autoComplete="off" >
       <TextField
         label="Name"
         variant="outlined"
